@@ -1,0 +1,8 @@
+<h1>Add New Company</h1>
+<div class="input-group input-group-lg">
+    <div class="input-group-prepend">
+    </div>
+    <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="usaerAdd">
+  </div>
+  <button type="button" class="btn btn-secondary btn-lg"  routerLink="/company_list" (click)= "sendToMongo()">ADD</button>
+<router-outlet></router-outlet>

@@ -1,0 +1,10 @@
+<p>company-update works!</p>
+<h1>Update Company</h1>
+<div class="input-group input-group-lg">
+    <div class="input-group-prepend">
+    </div>
+    <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm" [placeholder] ="companyName" [(ngModel)] = "fromHtmlNewUpdateName">
+  </div>
+  <button type="button" class="btn btn-secondary btn-lg" (click) = "goBack()">GO BACK</button>
+  <button type="button" class="btn btn-secondary btn-lg" (click) = "updateCompnayName()" routerLink="/company_detail">Update</button>
+<router-outlet></router-outlet>

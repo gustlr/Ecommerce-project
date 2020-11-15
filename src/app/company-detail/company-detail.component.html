@@ -1,0 +1,12 @@
+<div>
+    <p>company Name</p>
+    <div>
+        <h3>{{companyName}}</h3>
+        <p>something something</p>
+    </div>
+    <div>
+        <button type="button" class="btn btn-secondary"  routerLink="/company_list">GoBack</button>
+        <button type="button" class="btn btn-secondary"  (click)= "print(selectedId)" routerLink="/company_update">Update</button>
+        <button type="button" class="btn btn-secondary" (click) = "deleteCompnyById(selectedId)" routerLink="/company_list">Delete</button>
+    </div>
+</div>

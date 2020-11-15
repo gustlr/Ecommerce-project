@@ -1,0 +1,15 @@
+<p>product-detail works!</p>
+<!-- <div *ngFor = "let product of ">
+    <h4></h4>
+</div> -->
+{{productDetail}}
+<h1>{{productDetail.productName}}</h1>
+<p>{{productDetail.productCode}}</p>
+<p>{{productDetail.productImage}}</p>
+<p>{{productDetail.productPrice}}</p>
+
+<div>
+    <button type="button" class="btn btn-secondary"  routerLink="/product_list">GoBack</button>
+    <button type="button" class="btn btn-secondary" (click) = "putIntoParam(productDetail._id)">Update</button>
+    <button type="button" class="btn btn-secondary" (click) = "deleteCompnyById(productDetail._id)" routerLink="/product_list">Delete</button>
+</div>

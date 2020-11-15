@@ -17,6 +17,16 @@
         </ng-container>
         <ng-container *ngIf="auth.isAuthenticated()">
           <li class="nav-item">
+            <a class="nav-link" [routerLink] = "['/company_list']">
+              Mange Companies
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink] = "['/product_list']">
+              Mange Product
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link">
               {{ auth.getUsername() }}
             </a>

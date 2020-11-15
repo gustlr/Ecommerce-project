@@ -19,7 +19,7 @@ mongoose.connect(config.DB).then(
 );
 
 const app = express();
-
+const productapp = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -30,7 +30,8 @@ let corsOptions = {
 
 app.use(cors(corsOptions))
 app.use('/api/users', userRoute);
-
+require('./routes/companyRoute')(app);
+require('./routes/productRoute')(app);
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
 });
