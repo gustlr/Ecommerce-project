@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Router } from '@angular/router';
-
-import { AuthService } from './auth.service';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthAdminService } from './auth-admin.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AuthAdminGuard implements CanActivate {
   private url: string;
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthAdminService, private router: Router) { }
 
   private authState(): boolean {
     if (this.isLoginOrRegister()) {
-      this.router.navigate(['/customerLogin']);
+      this.router.navigate(['/']);
       return false;
     }
     return true;
@@ -22,11 +21,11 @@ export class AuthGuard implements CanActivate {
     if (this.isLoginOrRegister()) {
       return true;
     }
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['/admin/admin-login']);
     return false;
   }
   private isLoginOrRegister(): boolean {
-    if (this.url.includes('/auth/login') || this.url.includes('/auth/register')) {
+    if (this.url.includes('/admin/admin-login') || this.url.includes('/auth/register')) {
       return true;
     }
     return false;
@@ -39,5 +38,5 @@ export class AuthGuard implements CanActivate {
     }
     return this.notAuthState();
   }
+  
 }
-

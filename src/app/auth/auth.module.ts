@@ -11,14 +11,25 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
-
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import {AuthAdminComponent} from './auth-admin/auth-admin.component';
+import {AuthAdminGuard} from './auth-admin.guard';
+import { AdminRegisterComponent } from './admin-register/admin-register.component'
 const routes: Routes = [
   {
     path: 'auth',
     component: AuthComponent,
     children: [
       { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-      { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] }
+     { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] }
+    ]
+  },
+  {
+    path:'admin',
+    component: AuthAdminComponent,
+    children:[
+      {path:'admin-login', component: AdminLoginComponent, canActivate:[AuthAdminGuard]},
+      { path: 'admin-register', component: AdminRegisterComponent }
     ]
   }
 ];
@@ -27,7 +38,11 @@ const routes: Routes = [
   declarations: [
     RegisterComponent,
     LoginComponent,
-    AuthComponent
+    AuthComponent,
+    AdminLoginComponent,
+    AuthAdminComponent,
+    AdminRegisterComponent
+   
   ],
   imports: [
     RouterModule.forChild(routes),

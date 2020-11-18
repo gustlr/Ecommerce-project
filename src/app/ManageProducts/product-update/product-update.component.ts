@@ -13,7 +13,7 @@ import { Products } from 'src/app/models/product';
   styleUrls: ['./product-update.component.css']
 })
 export class ProductUpdateComponent implements OnInit {
-  productDd = new Products()
+  productDd: Products
   productRef = new FormGroup({
     productCode: new FormControl(),
     productName: new FormControl(),
@@ -24,8 +24,8 @@ export class ProductUpdateComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, private companyService : CompanyService) { }
   orderObj: any;
   selectedProductId: string;
-  productDetail:any;
-  product = new Products;
+  productDetail:Products;
+  product :Products;
   companies:Company[];
   result:any
   ngOnInit(): void {
@@ -50,12 +50,12 @@ export class ProductUpdateComponent implements OnInit {
       })
       this.productService.getProductById(this.selectedProductId).subscribe(data => {
         this.productDetail = data;
-         this.productDd.productCode = this.productDetail.productCode;
-        this.productDd.productDetail = this.productDetail.productDetail;
-        this.productDd.productImage = this.productDetail.productImage;
-         this.productDd.productName = this.productDetail.productName;
-        this.productDd.productPrice = this.productDetail.productPrice;
-        console.log(this.productDetail + "==============")
+        //  this.productDd.productCode = this.productDetail.productCode;
+        // this.productDd.productDetail = this.productDetail.productDetail;
+        // this.productDd.productImage = this.productDetail.productImage;
+        //  this.productDd.productName = this.productDetail.productName;
+        // this.productDd.productPrice = this.productDetail.productPrice;
+        console.log(this.productDetail.productCode + "==============")
       })
   }
   onSubmitUpdateProduct(){

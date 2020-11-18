@@ -1,4 +1,13 @@
 <div>
-  <app-header></app-header>
+  <!-- <ng-container *ngIf="!auth.isAuthenticated() && !authAdmin.isAuthenticated()">
+    <app-header></app-header>
+  </ng-container>
+  <ng-container *ngIf="auth.isAuthenticated()"> -->
+    <app-header></app-header>
+  <!-- </ng-container>
+  <ng-container *ngIf="authAdmin.isAuthenticated()">
+    <app-header-admin></app-header-admin>
+  </ng-container> -->
+  
   <router-outlet></router-outlet>
 </div>

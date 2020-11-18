@@ -28,6 +28,9 @@ const userSchema = new Schema({
     min: [4, 'Too short, min 4 characters are required'],
     max: [32, 'Too long, max 16 characters are required']
   },
+  roles:[
+      {role: ["admin"]}
+  ]
   
 });
 
@@ -55,4 +58,4 @@ userSchema.methods.hasSamePassword = function (password) {
   return bcrypt.compareSync(password, this.password)
 }
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('Admin', userSchema)

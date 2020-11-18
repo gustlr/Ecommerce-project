@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
       <div class="col-md-5">
-        <h1 class="page-title">Login</h1>
-        <form [formGroup]="loginForm" (ngSubmit) = "login()">
+        <h1 class="page-title">Admin Login</h1>
+        <form [formGroup]="loginForm" (ngSubmit) = "loginSome()">
           <div class="form-group">
             <div *ngIf="notify" class="alert alert-success">
               {{ notify }}
@@ -39,7 +39,7 @@
               Password is required.
             </div>
           </div>
-          <button (click) = "login()"
+          <button
           [disabled]="!loginForm.valid"
           type="submit" 
           class="btn btn-warning"
@@ -48,4 +48,3 @@
       </div>
     </div>
 </div>
-<router-outlet></router-outlet>

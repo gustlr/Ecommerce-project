@@ -21,6 +21,9 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
 import { ProductDetailComponent } from './ManageProducts/product-detail/product-detail.component';
 import { ProductUpdateComponent } from './ManageProducts/product-update/product-update.component';
 import { ProductDeleteComponent } from './ManageProducts/product-delete/product-delete.component';
+import { HeaderAdminComponent } from './header-admin/header-admin.component';
+
+import { CustomerCartComponent } from './customer/customer-cart/customer-cart.component';
 
 
 @NgModule({
@@ -40,6 +43,8 @@ import { ProductDeleteComponent } from './ManageProducts/product-delete/product-
     ProductDetailComponent,
     ProductUpdateComponent,
     ProductDeleteComponent,
+    HeaderAdminComponent,
+    CustomerCartComponent
     
   ],
   imports: [

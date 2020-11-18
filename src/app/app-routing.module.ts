@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 
 import { AuthGuard } from './auth/auth.guard';
@@ -15,17 +14,21 @@ import { ManProductsComponent } from './ManageProducts/man-products/man-products
 import { AddProductComponent } from './ManageProducts/add-product/add-product.component';
 import { ProductDetailComponent } from './ManageProducts/product-detail/product-detail.component';
 import {ProductUpdateComponent} from './ManageProducts/product-update/product-update.component';
+import { AuthAdminGuard } from './auth/auth-admin.guard';
+import { CustomerCartComponent } from './customer/customer-cart/customer-cart.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'company_list', component: CompaniesListComponent, canActivate: [AuthGuard] },
-  { path: 'company_add', component: CompanyAddComponent, canActivate: [AuthGuard] },
-  { path: 'company_detail', component: CompanyDetailComponent, canActivate: [AuthGuard] },
-  { path: 'company_update', component: CompanyUpdateComponent, canActivate: [AuthGuard]},
-  { path: 'product_list', component: ManProductsComponent, canActivate: [AuthGuard]},
-  { path: 'product_add', component: AddProductComponent, canActivate: [AuthGuard]},
-  { path: 'product_detail', component: ProductDetailComponent, canActivate: [AuthGuard]},
-  { path: 'product_update', component: ProductUpdateComponent, canActivate: [AuthGuard]}
+  {path:'customerLogin', component: HomeComponent,canActivate: [AuthGuard] },
+  { path: 'company_list', component: CompaniesListComponent, canActivate: [AuthAdminGuard] },
+  { path: 'company_add', component: CompanyAddComponent, canActivate: [AuthAdminGuard] },
+  { path: 'company_detail', component: CompanyDetailComponent, canActivate: [AuthAdminGuard] },
+  { path: 'company_update', component: CompanyUpdateComponent, canActivate: [AuthAdminGuard]},
+  { path: 'product_list', component: ManProductsComponent, canActivate: [AuthAdminGuard]},
+  { path: 'product_add', component: AddProductComponent, canActivate: [AuthAdminGuard]},
+  { path: 'product_detail', component: ProductDetailComponent, canActivate: [AuthAdminGuard]},
+  { path: 'product_update', component: ProductUpdateComponent, canActivate: [AuthAdminGuard]},
+  { path: 'cart', component: CustomerCartComponent,canActivate: [AuthGuard]}
+
 
 ];
 

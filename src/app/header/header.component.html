@@ -1,8 +1,10 @@
 <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
   <div class="container">
-    <a routerLink="/" class="navbar-brand" routerLinkActive="active">Admin Portal</a>
+    <a routerLink="/" class="navbar-brand" routerLinkActive="active">E-Commer</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
+
+
         <ng-container *ngIf="!auth.isAuthenticated()">
           <li class="nav-item">
             <a routerLink="/auth/login" class="nav-link" routerLinkActive="active">
@@ -14,15 +16,49 @@
               Register
             </a>
           </li>
+          <li class="nav-item">
+            <a routerLink="/admin/admin-login" class="nav-link">
+              Admin
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/admin/admin-register" class="nav-link">
+              Admin-Register
+            </a>
+          </li>
         </ng-container>
+
         <ng-container *ngIf="auth.isAuthenticated()">
           <li class="nav-item">
-            <a class="nav-link" [routerLink] = "['/company_list']">
+            <a class="nav-link" routerLink="/">
+              Product
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/cart']">
+             Cart
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              {{ auth.getUsername() }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pointer" (click)="logoutCustomer()">
+              Logout
+            </a>
+          </li>
+        </ng-container>
+        
+        <ng-container *ngIf="adminAuth.isAuthenticated()">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/company_list']">
               Mange Companies
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink] = "['/product_list']">
+            <a class="nav-link" [routerLink]="['/product_list']">
               Mange Product
             </a>
           </li>
@@ -32,11 +68,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link pointer" (click)="logout()">
+            <a class="nav-link pointer" (click)="logoutCustomer()">
               Logout
             </a>
           </li>
-        </ng-container>
+      </ng-container>
+
       </ul>
     </div>
   </div>

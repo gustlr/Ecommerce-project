@@ -15,7 +15,7 @@ export class ProductDetailComponent implements OnInit {
   selectedProductId: string;
   orderObj: any
   productDetail: any;
-  productDd = new Products()
+  productDd :Products
   result:string;
   ngOnInit(): void {
     this.router.events.pipe(

@@ -19,8 +19,8 @@ export class ProductService {
     storeProduct(product: Products):Observable<any>{
       return this.http.post<any>(this.productUrl, product,httpOptions);
     }
-    getProductById(productId:string):Observable<Products[]>{
-      return this.http.get<Products[]>(`${this.productUrl}/${productId}`);
+    getProductById(productId:string):Observable<Products>{
+      return this.http.get<Products>(`${this.productUrl}/${productId}`);
     }
     updateProductById(productdtail: Products, productId:string):Observable<Products>{
       return this.http.put<Products>(`${this.productUrl}/${productId}`,productdtail,httpOptions);
